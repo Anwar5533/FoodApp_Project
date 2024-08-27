@@ -1,8 +1,10 @@
+import { LOGO_URL } from "../Utlis/Constants";
+
 export default function Header(){
     return (
         <div className = " flex justify-between border-solid border-2 border-slate-900 mx-[10px]">
             <div className = "" >
-                <img className="w-[50%]" src="./src/assets/Logo.png" alt="" />
+                <img className="w-[50%]" src={LOGO_URL }alt="LOGO" />
             </div>
             <div>
                 <ul className="flex ">
