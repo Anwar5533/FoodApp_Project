@@ -13,7 +13,7 @@ const resObj= [
           "Tibetan",
           "Desserts"
         ],
-        "avgRating": 4.4,
+        "avgRating": 3.6,
         "parentId": "61955",
         "avgRatingString": "4.4",
         "totalRatingsString": "500+",
