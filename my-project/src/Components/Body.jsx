@@ -1,5 +1,5 @@
 import ItemCard from "./ItemCard";
-import resObj from "../Utlis/Mockdata";
+
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
@@ -16,14 +16,12 @@ const fetchData = async () => {
     const json = await data.json();
     console.log(json)
     setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []) ;
-   
-}
 
+}
 if(listOfRestaurants.length === 0)
     {
         return <Shimmer/>
     }
-
     return (
         <div className="">
             <div className="m-[10px] ">
