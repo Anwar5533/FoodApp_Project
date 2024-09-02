@@ -28,7 +28,7 @@ export default function Body() {
             <div className="m-[10px] flex ">
                 <div className="px-4">
                     <input
-                        className="border-2 border-solid border-slate-800 rounded-md"
+                        className="border-2 border-solid border-slate-800 rounded-md" placeholder="Search Here"
                         type="text"
                         value={search}
                         onChange={(e) => {
@@ -42,6 +42,7 @@ export default function Body() {
                             );
                             setFilteredListRestaurant(filteredRestaurant);
                         }}
+                        className="p-2 rounded-md ml-2 border-s-slate-900 border-2"
                     >
                         Search
                     </button>
@@ -50,10 +51,10 @@ export default function Body() {
                     <button
                         className="border-slate-900 border-[2px]"
                         onClick={() => {
-                            const filteredList = listOfRestaurants.filter(
+                            const filteredListRestaurant = listOfRestaurants.filter(
                                 (res) => res.info.avgRating > 4
                             );
-                            setFilteredListRestaurant(filteredList);
+                            setFilteredListRestaurant(filteredListRestaurant);
                         }}
                     >
                         Top Rated Restaurants
