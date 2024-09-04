@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-
-
+import { useParams } from "react-router-dom"
+import { Menu_API } from "../Utlis/Constants";
 export default function RestaurantMenu(){
-    const [resInfo, setResInfo]= useState(null)
+    const [resInfo, setResInfo]= useState(null);
+
+    const {resId} = useParams();
+
     useEffect(()=>{
         fetchData();
     },[])
 
     const fetchData = async() => {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.0169992&lng=77.7044335&restaurantId=424658&catalog_qa=undefined&submitAction=ENTER")
+        const data = await fetch(Menu_API+resId)
         const json = await data.json();
         console.log(json);
         setResInfo(json.data);
     };
     const info = resInfo?.cards[2]?.card?.card?.info;
+    const menuItems = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
+    const menuItemsData = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    // console.log(menuItems)
     return resInfo === null ? <Shimmer/> :
     (
         <div className=" place-items-center mx-[240px] my-3">
@@ -56,7 +62,17 @@ export default function RestaurantMenu(){
                     </div>
                 </div>
                 
-                <h2>Restaurant Menu</h2>
+                <div className=" h-[202.67 px] w-[768px] bg-white">
+                    <div className="py-1">
+                        <h2>{menuItemsData.title}({menuItems.length})</h2>
+                        <ul >
+                            {menuItems.map((item) => (
+                            <li key={item.card.info.id}>{item.card.info.name} <span>₹{item.card.info.price/100}</span></li>
+                            
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     );
