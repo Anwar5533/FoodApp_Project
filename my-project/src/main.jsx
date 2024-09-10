@@ -7,6 +7,11 @@ import ContactUs from './Components/ContactUs.jsx';
 import Error from './Components/Error.jsx';
 import Body from './Components/Body.jsx';
 import RestaurantMenu from './Components/RestaurantMenu.jsx';
+import { lazy, Suspense } from 'react';
+
+const InstaMart = lazy(()=>{
+  return import('./Components/InstaMart.jsx')
+})
 const appRouter = createBrowserRouter([
   { 
     path: '/', 
@@ -23,6 +28,12 @@ const appRouter = createBrowserRouter([
     { 
       path: '/contact', 
       element: <ContactUs/>
+    },
+    { 
+      path: '/instaMart', 
+      element: (
+        <Suspense fallback={<h1>Loading....</h1>}><InstaMart/></Suspense>
+      )
     },
     {
       path:'/restaurant/:resId',
