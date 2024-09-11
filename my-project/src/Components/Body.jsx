@@ -34,15 +34,18 @@ export default function Body() {
     return (
         <div className="">
             <div className="m-[10px] flex ">
-                <div className="px-4">
+                <div className="px-4 flex ">
+                    <div>
                     <input
-                        className="border-2 border-solid border-slate-800 rounded-md" placeholder="Search Here"
+                        className=" py-2 px-2 border border-solid border-green-500 rounded-md" placeholder="Search Here"
                         type="text"
                         value={search}
                         onChange={(e) => {
                             setSearch(e.target.value);
                         }}
                     />
+                    </div>
+                    <div>
                     <button
                         onClick={() => {
                             const filteredRestaurant = listOfRestaurants.filter((res) =>
@@ -50,14 +53,15 @@ export default function Body() {
                             );
                             setFilteredListRestaurant(filteredRestaurant);
                         }}
-                        className="p-2 rounded-md ml-2 border-s-slate-900 border-2"
+                        className="px-4 py-2 bg-green-200 rounded-md ml-2 "
                     >
                         Search
                     </button>
+                    </div>
                 </div>
                 <div>
                     <button
-                        className="border-slate-900 border-[2px]"
+                        className="px-4 py-2 bg-slate-100 rounded-md"
                         onClick={() => {
                             const filteredListRestaurant = listOfRestaurants.filter(
                                 (res) => res.info.avgRating > 4
@@ -69,7 +73,7 @@ export default function Body() {
                     </button>
                 </div>
             </div>
-            <div className="grid grid-cols-5">
+            <div className="flex flex-wrap justify-center ">
                 {filteredListRestaurant.map((resData) => (
                     <Link key={resData.info.id} to= {"restaurant/"+ resData.info.id}> <ItemCard  resData={resData.info} /> </Link>
                 ))}

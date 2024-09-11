@@ -3,16 +3,16 @@ export default function ItemCard(props) {
     const { resData } = props;
 
     return (
-        <div className="w-[220px] mb-[10px] cursor-pointer overflow-hidden hover:bg-slate-100 hover:border-slate-100 hover:border-2 ">
-            <div >
-            <img className="w-[90%] pl-[5px] m-[5px]" src={CDN_URL+resData.cloudinaryImageId} alt="" />
+        <div className="w-[250px] h-auto m-4 p-4 bg-slate-100  cursor-pointer overflow-hidden bg-100 hover:bg-gray-200 ">
+            <div className=" pl-3">
+            <img className="w-48 h-56 mb-2 rounded-lg" src={CDN_URL+resData.cloudinaryImageId} alt="" />
             </div>
-            <div className="m-[15px]" >
+            <div  >
             <h3>{resData.name}</h3>
-            <h3>{resData.cuisines.join(",")}</h3>
-            <h3>{resData.deliveryTime} minutes</h3>
+            <p className="w-[150px]">{resData.cuisines.join(",")}</p>
+            <p>{resData?.sla?.slaString}</p>
             <h3>{resData.avgRating}</h3>
-            <h3>{resData.costForTwo}</h3>
+            <p>{resData.costForTwo}</p>
             <h2 className="mx-[10px]"></h2>
             </div>
         </div>

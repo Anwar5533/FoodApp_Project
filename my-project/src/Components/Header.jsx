@@ -10,7 +10,7 @@ const onlineStatus = useOnlineStatus();
 
 
     return (
-        <div className = " flex justify-between border-solid border-2 border-slate-900 mx-[10px]">
+        <div className = " flex justify-between shadow-md shadow-slate-200 mx-[10px]">
             <div className = "" >
                 <img className="w-[50%]" src={LOGO_URL }alt="LOGO" />
             </div>
