@@ -53,7 +53,7 @@ export default function Body() {
                             );
                             setFilteredListRestaurant(filteredRestaurant);
                         }}
-                        className="px-4 py-2 bg-green-200 rounded-md ml-2 "
+                        className="px-4 py-2 bg-green-200 rounded-md ml-2 hover:bg-green-500 transition ease-in-out duration-300 "
                     >
                         Search
                     </button>

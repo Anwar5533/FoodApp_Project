@@ -5,7 +5,7 @@ export default function ItemCard(props) {
     return (
         <div className="w-[250px] h-auto m-4 p-4 bg-slate-100  cursor-pointer overflow-hidden bg-100 hover:bg-gray-200 ">
             <div className=" pl-3">
-            <img className="w-48 h-56 mb-2 rounded-lg" src={CDN_URL+resData.cloudinaryImageId} alt="" />
+            <img className="w-48 h-48 mb-2 rounded-lg" src={CDN_URL+resData.cloudinaryImageId} alt="" />
             </div>
             <div  >
             <h3>{resData.name}</h3>

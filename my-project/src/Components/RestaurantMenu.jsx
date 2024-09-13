@@ -9,7 +9,14 @@ export default function RestaurantMenu(){
     const info = resInfo?.cards[2]?.card?.card?.info;
     const menuItems = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
     const menuItemsData = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-    // console.log(menuItems)
+    console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR)
+
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((c) => 
+        c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" || 
+        c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+    );
+    
+    console.log(categories)
     return resInfo === null ? <Shimmer/> :
     (
         <div className=" place-items-center mx-[240px] my-3">
@@ -57,7 +64,6 @@ export default function RestaurantMenu(){
                         <ul >
                             {menuItems.map((item) => (
                             <li key={item.card.info.id}>{item.card.info.name} <span>₹{item.card.info.price/100}</span></li>
-                            
                             ))}
                         </ul>
                     </div>
