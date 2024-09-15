@@ -1,6 +1,7 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom"
 import useRestaurantMenu from "../Utlis/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 export default function RestaurantMenu(){
 
     const {resId} = useParams();
@@ -59,14 +60,7 @@ export default function RestaurantMenu(){
                 </div>
                 
                 <div className=" h-[202.67 px] w-[768px] bg-white">
-                    <div className="py-1">
-                        <h2>{menuItemsData.title}({menuItems.length})</h2>
-                        <ul >
-                            {menuItems.map((item) => (
-                            <li key={item.card.info.id}>{item.card.info.name} <span>₹{item.card.info.price/100}</span></li>
-                            ))}
-                        </ul>
-                    </div>
+                    {categories.map((category) => <RestaurantCategory key={category?.card?.card?.itemCards?.card?.info?.id} data= {category?.card?.card} /> )}
                 </div>
             </div>
         </div>
