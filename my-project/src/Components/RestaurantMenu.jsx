@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom"
 import useRestaurantMenu from "../Utlis/useRestaurantMenu";
@@ -10,14 +11,14 @@ export default function RestaurantMenu(){
     const info = resInfo?.cards[2]?.card?.card?.info;
     const menuItems = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
     const menuItemsData = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-    console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR)
+    // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR)
 
     const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((c) => 
         c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" || 
         c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
     );
     
-    console.log(categories)
+    // console.log(categories)
     return resInfo === null ? <Shimmer/> :
     (
         <div className=" place-items-center mx-[240px] my-3">
