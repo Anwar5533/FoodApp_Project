@@ -1,15 +1,20 @@
+import { useState } from "react";
 import ItemList from "./ItemList";
 /* eslint-disable react/prop-types */
 export default function RestaurantCategory({data}) {
-    console.log("RestaurantCategory data:", data);
+    const [showItems,setShowItems] = useState(true);
+
+    function handleClick(){
+        setShowItems(!showItems)
+    }
 
     return (
         <div className="mt-2 shadow-md shadow-slate-300 p-4 rounded-xl">
-            <div className="flex justify-between ">
-                <span className="font-bold text-xl">{data.title} ({data?.itemCards?.length || data?.categories?.length})</span>
+            <div className="flex justify-between cursor-pointer " onClick={handleClick}>
+                <span className="font-semibold text-lg cursor-pointer ">{data.title} ({data?.itemCards?.length || data?.categories?.length})</span>
                 <span>▼</span>
             </div>
-            <ItemList items={data?.itemCards || data?.categories}/>
+            { showItems && <ItemList items={data?.itemCards || data?.categories}/>}
         </div>
     );
 }

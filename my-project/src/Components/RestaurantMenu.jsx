@@ -61,7 +61,7 @@ export default function RestaurantMenu(){
                 </div>
                 
                 <div className=" h-[202.67 px] w-[768px] bg-white">
-                    {categories.map((category) => <RestaurantCategory key={category?.card?.card?.itemCards?.card?.info?.id} data= {category?.card?.card} /> )}
+                    {categories.map((category) => <RestaurantCategory key={category?.card?.card?.title} data= {category?.card?.card} /> )}
                 </div>
             </div>
         </div>
