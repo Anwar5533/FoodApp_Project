@@ -1,11 +1,10 @@
-import { useState } from "react";
+
 import ItemList from "./ItemList";
 /* eslint-disable react/prop-types */
-export default function RestaurantCategory({data}) {
-    const [showItems,setShowItems] = useState(true);
+export default function RestaurantCategory({data , showItems,setShowIndex }) {
 
     function handleClick(){
-        setShowItems(!showItems)
+        setShowIndex(!showItems)
     }
 
     return (

@@ -1,14 +1,15 @@
 import { LOGO_URL } from "../Utlis/Constants";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utlis/useOnlineStatus";
+import UserContext from "../Utlis/UserContext";
 
 
 export default function Header(){
 const [btnName,setBtnName]=useState("Login")
 const onlineStatus = useOnlineStatus();
-
-
+const {loggedInUser} = useContext(UserContext);
+console.log(loggedInUser)
     return (
         <div className = " flex justify-between shadow-md shadow-slate-200 mx-[10px]">
             <div className = "" >
@@ -27,7 +28,9 @@ const onlineStatus = useOnlineStatus();
                     <button className="px-2 rounded-md  bg-slate-100" onClick={()=>
                     btnName === "Login" ? setBtnName("Logout") : setBtnName("Login")
                     }>{btnName}</button>
+                    <li>{loggedInUser}</li>
                 </ul>
+                
             </div>
         </div>
     );

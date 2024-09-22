@@ -15,7 +15,7 @@ export default function Body() {
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0169992&lng=77.7044335&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        console.log(json);
+        // console.log(json);
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
         setFilteredListRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
     };
@@ -23,6 +23,7 @@ export default function Body() {
     const onlineStatus = useOnlineStatus();
     if (onlineStatus === false) {
         return (
+        // eslint-disable-next-line react/no-unescaped-entities
         <h1>Looks Like You're Offline. Please check your internet connection</h1>
     )
 }
@@ -71,6 +72,8 @@ export default function Body() {
                     >
                         Top Rated Restaurants
                     </button>
+                    <label > User Name: </label>
+                    <input type="text"  className="border border-black" />
                 </div>
             </div>
             <div className="flex flex-wrap justify-center ">

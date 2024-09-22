@@ -3,13 +3,13 @@ import { CDN_URL } from "../Utlis/Constants";
 
 
 export default function ItemList({items}){
-    console.log(items)
+    // console.log(items)
 
     return(
         <div className="">
-            {items.map((item)=>(
+            {items.map((item,index)=>(
                 
-                <div key={item?.card?.title} className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between">
+                <div key={index} className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between">
                     
                     <div className="w-9/12"> 
                     <div className=" ">
