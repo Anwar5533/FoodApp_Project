@@ -1,8 +1,9 @@
 import ItemCard from "./ItemCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utlis/useOnlineStatus";
+import UserContext from "../Utlis/UserContext";
 export default function Body() {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredListRestaurant, setFilteredListRestaurant] = useState([]);
@@ -27,6 +28,8 @@ export default function Body() {
         <h1>Looks Like You're Offline. Please check your internet connection</h1>
     )
 }
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const {loggedInUser,setUserName } = useContext(UserContext)
 
     if (listOfRestaurants.length === 0) {
         return <Shimmer />;
@@ -73,7 +76,9 @@ export default function Body() {
                         Top Rated Restaurants
                     </button>
                     <label > User Name: </label>
-                    <input type="text"  className="border border-black" />
+                    <input type="text"  className="border border-black" 
+                    value = {loggedInUser}
+                    onChange={(e)=> setUserName(e.target.value)}/>
                 </div>
             </div>
             <div className="flex flex-wrap justify-center ">
