@@ -1,10 +1,14 @@
-
+import { useDispatch } from "react-redux";
 /* eslint-disable react/prop-types */
 import { CDN_URL } from "../Utlis/Constants";
+import { addItem } from "../Utlis/Redux/CartSlice";
 
 export default function ItemList({ items }) {
-    console.log(items);
 
+const dispatch = useDispatch();
+const handleAddItem = (item)=>{
+    dispatch(addItem(item))
+}
     return (
         <div className="">
             {items.map((item, index) => {
@@ -34,7 +38,8 @@ export default function ItemList({ items }) {
                             </p>
                         </div>
                         <div className="w-3/12">
-                            <button className="absolute bg-white rounded-lg px-4 py-2 mx-10 my-24">ADD</button>
+                            <button className="absolute bg-white rounded-lg px-4 py-2 mx-10 my-24" onClick={()=>handleAddItem(item)}
+                            >ADD</button>
                             <img src={imageUrl} alt="Item_Image" className="w-40 h-36 rounded-lg" />
                         </div>
                     </div>
