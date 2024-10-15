@@ -7,3 +7,14 @@ test('renders the heading', () => {
     const headingElement = screen.getByRole("heading");
     expect(headingElement).toBeInTheDocument();
   });
+  test('renders the submit - button', () => {
+    render(<ContactUs />);
+    const Button = screen.getByRole("button");
+    expect(Button).toBeInTheDocument();
+  });
+  test('renders the Input text', () => {
+    render(<ContactUs />);
+    const inputBox = screen.getAllByRole("textbox");
+    
+    expect(inputBox.length).toBe(2);
+  });
