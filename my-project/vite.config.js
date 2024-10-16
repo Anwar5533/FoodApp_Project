@@ -11,4 +11,9 @@ export default defineConfig({
     include: ['**/*.test.{js,jsx}'],
       // Run setup files before each test
   },
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 })
